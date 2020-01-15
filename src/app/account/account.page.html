@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      帳戶管理
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="logined">
+    <ion-list class="account">
+
+      <ion-item>
+        <ion-label>
+          帳號
+        </ion-label>
+      </ion-item>
+      <div *ngFor="let acc of account">
+        <ion-item>
+          <ion-label>
+            {{acc['username']}}
+          </ion-label>
+          <img slot="end" src="../../assets/icon/Delete.svg" (click)="delete(acc['username'])">
+        </ion-item>
+      </div>
+      <!-- <ion-item>
+      <ion-label>
+        test
+      </ion-label>
+      <img slot="end" src="../../assets/icon/Delete.svg">
+    </ion-item> -->
+    </ion-list>
+    <div class="add" (click)="add()">
+      <img src="../../assets/icon/Add.svg">
+    </div>
+  </div>
+  <div class="notlogin">
+    <p *ngIf="!logined">尚未登入</p>
+  </div>
+</ion-content>
+
+<div class="page-tutor-class">
+
+  <div *ngIf="addaccount" center class="modal status">
+    <div class="modal-inner">
+      <div *ngIf="!afteradd">
+
+        <div class="modal-text">
+          新增帳號
+        </div>
+        <div class="modal-input">
+          <ion-item>
+            <ion-label position="floating">帳號</ion-label>
+            <ion-input [(ngModel)]="username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">密碼</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">確認密碼</ion-label>
+            <ion-input type="password" [(ngModel)]="c_password"></ion-input>
+          </ion-item>
+          <p>{{caution}}</p>
+        </div>
+
+        <div class="comfirm-button">
+          <ion-button expand="block" (click)="add_confirm()">確認</ion-button>
+        </div>
+        <div class="cancel-button">
+          <ion-button expand="block" (click)="add_cancel()">取消</ion-button>
+        </div>
+
+      </div>
+
+      <div *ngIf="afteradd">
+
+
+        <p>{{caution}}</p>
+
+
+        <div class="comfirm-button">
+          <ion-button expand="block" (click)="after()">好！</ion-button>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="page-tutor-class">
+
+  <div *ngIf="deleteaccount" center class="modal status">
+    <div class="modal-inner">
+      <div *ngIf="!combine_success">
+
+        <div class="modal-text">
+          刪除帳號({{delete_username}})
+        </div>
+        <div class="comfirm-button">
+          <ion-button expand="block" (click)="delete_confirm()">確認</ion-button>
+        </div>
+        <div class="cancel-button">
+          <ion-button expand="block" (click)="delete_cancel()">取消</ion-button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

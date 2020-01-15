@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      電影管理
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="movie">
+  <ion-item>
+    <ion-label>
+      電影名稱
+    </ion-label>
+  </ion-item>
+  <div *ngFor="let movie of movies">
+    <ion-item>
+      <ion-label>
+        {{movie.name}}
+      </ion-label>
+      <div class="edit">
+        <img slot="end" src="../../assets/icon/Edit.svg" (click)="edit(movie['number'])">
+      </div>
+      <!-- <div class="delete">
+        <img slot="end" src="../../assets/icon/Delete.svg">
+      </div> -->
+    </ion-item>
+  </div>
+  <!-- <ion-item>
+    <ion-label>
+      test
+    </ion-label>
+    <div class="edit">
+    <img slot="end" src="../../assets/icon/Edit.svg">
+  </div>
+  <div class="delete">
+    <img slot="end" src="../../assets/icon/Delete.svg">
+    </div>
+  </ion-item> -->
+
+  <div class="add" (click)="add()">
+    <img src="../../assets/icon/Add.svg">
+  </div>
+
+
+  <!-- <ion-item>
+    <ion-label>D MMM YYYY</ion-label>
+    <ion-datetime myPicker displayFormat="D MMM YYYY" min="1997" max="2010" value="2005-06-17" [(ngModel)]="myDate"
+      (ionStyle)="showdate(myPicker)"></ion-datetime>
+  </ion-item> -->
+
+</ion-content>
+<div class="page-tutor-class">
+
+  <div *ngIf="addmovie" center class="modal status">
+    <div class="modal-inner">
+      <div *ngIf="!combine_success">
+
+        <div class="modal-text">
+          新增電影
+        </div>
+        <div class="modal-input">
+          <ion-item>
+            <ion-label position="floating">電影名稱</ion-label>
+            <ion-input [(ngModel)]="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">年齡分級</ion-label>
+            <ion-select value="" okText="確認" cancelText="取消" [(ngModel)]="rating" (ionChange)="test()">
+              <ion-select-option value="0">普遍級</ion-select-option>
+              <ion-select-option value="6">保護級</ion-select-option>
+              <ion-select-option value="12">輔導十二級</ion-select-option>
+              <ion-select-option value="15">輔導十五級</ion-select-option>
+              <ion-select-option value="18">限制級</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">類型</ion-label>
+            <ion-input [(ngModel)]="form.type"></ion-input>
+          </ion-item>
+          <p></p>
+          <ion-label>上映時間</ion-label>
+          <ion-row>
+            <ion-col class="col-4" style="padding-left: 0px;">
+              <ion-label position="floating">月</ion-label>
+              <ion-select interface="popover" (ionChange)="checkdate()" [(ngModel)]="form.month">
+                <ion-select-option *ngFor="let m of month" value="{{m}}" >{{m}}</ion-select-option>
+
+              </ion-select>
+            </ion-col>
+            <ion-col class="col-4" style="padding-right: 0px;">
+              <ion-label position="floating">日</ion-label>
+            <ion-input type="number" [(ngModel)]="form.date" (ionChange)="checkdate()"></ion-input>
+              
+            </ion-col>
+            <ion-col class="col-4" style="padding-right: 0px;">
+              <ion-label position="floating">年</ion-label>
+              <ion-input type="number" [(ngModel)]="form.year" (ionChange)="checkdate()"></ion-input>
+              
+            </ion-col>
+          </ion-row>
+          <p>{{date_caution}}</p>
+          <p>{{caution}}</p>
+        </div>
+        <div class="comfirm-button">
+          <ion-button expand="block" (click)="add_confirm()">COMFIRM</ion-button>
+        </div>
+        <div class="cancel-button">
+          <ion-button expand="block" (click)="add_cancel()">CANCEL</ion-button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

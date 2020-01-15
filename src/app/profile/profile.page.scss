@@ -1,0 +1,31 @@
+.cards {
+    p {
+      margin: auto;
+      height: 36px;
+      font-size: 12px;
+    }
+    .cardsimg {
+      width: 35px;
+      height: auto;
+      margin: auto;
+      padding: 20px 0 10px 0;
+    }
+    ion-card-content {
+      margin: auto;
+      padding: 0px;
+    }
+    .item-native {
+      padding: 0px;
+    }
+  
+    .item-inner {
+      padding: 0px;
+    }
+  }
+  ion-col {
+    padding: 0px;
+  }
+  
+  ion-card-content {
+    text-align: center;
+  }

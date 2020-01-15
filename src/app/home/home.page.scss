@@ -1,0 +1,26 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+.login{
+  p{
+    text-align: center;
+  }
+  ion-label{
+    color:gray;
+  }
+  
+  ion-button{
+    --background: rebeccapurple;
+  }
+  width: 360px;
+  background: #f1f1f1;
+  height: 580px;
+  padding: 80px 40px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}

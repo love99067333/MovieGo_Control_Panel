@@ -1,0 +1,7 @@
+{
+  "name": "backstage",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

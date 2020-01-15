@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      設定
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="logined">
+    <div class="cards">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="col-6">
+            <ion-card>
+              <ion-item (click)="go_test()" lines="none">
+
+                <ion-card-content>
+                  <img src="../../assets/icon/Account Settings.svg" class="cardsimg">
+                  <p style="color:#b28247;">個人設定</p>
+                </ion-card-content>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+          <ion-col class="col-6">
+            <ion-card>
+              <ion-item (click)="go_test()" lines="none">
+
+                <ion-card-content>
+                  <img src="../../assets/icon/Change Password.svg" class="cardsimg">
+                  <p style="color:#3a92b6;">更改密碼</p>
+                </ion-card-content>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="col-6">
+            <ion-card>
+              <ion-item (click)="go_test()" lines="none">
+
+                <ion-card-content>
+                  <img src="../../assets/icon/Confirm Invitation.svg" class="cardsimg">
+                  <p style="color:#e35f26;">數據分析</p>
+                </ion-card-content>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+          <ion-col class="col-6">
+            <ion-card>
+              <ion-item (click)="go_test()" lines="none">
+
+                <ion-card-content>
+                  <img src="../../assets/icon/Order.svg" class="cardsimg">
+                  <p style="color:#000;">銷售紀錄</p>
+                </ion-card-content>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="col-6">
+            <ion-card>
+              <ion-item (click)="loggout()" lines="none">
+
+                <ion-card-content>
+                  <img src="../../assets/icon/Logout.svg" class="cardsimg">
+                  <p style="color:#c30d23;">登出</p>
+                </ion-card-content>
+
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <p *ngIf="!logined">尚未登入</p>
+</ion-content>
+
+<div class="page-tutor-class">
+
+  <div *ngIf="logout_approve" center class="modal status">
+    <div class="modal-inner">
+      <div *ngIf="!success">
+        <img src="../../assets/icon/Logout.svg">
+        <div class="modal-text">
+          确定要登出吗?
+        </div>
+        <div class="comfirm-button">
+          <ion-button expand="block" (click)="loggout_confirm()">确定</ion-button>
+        </div>
+        <div class="cancel-button">
+          <ion-button expand="block" (click)="loggout_cancel()">取消</ion-button>
+        </div>
+      </div>
+      <div *ngIf="success">
+        <img src="../../assets/icon/Pop Up Success.svg">
+        <div class="modal-text">
+          成功登出
+        </div>
+        <div class="comfirm-button">
+          <ion-button shape="round" expand="block" (click)="logout()">确定</ion-button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

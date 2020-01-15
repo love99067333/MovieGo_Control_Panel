@@ -1,0 +1,220 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  /** primary **/
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0bb8cc;
+  --ion-color-secondary-tint: #24d6ea;
+
+  /** tertiary **/
+  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary-rgb: 112, 68, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #633ce0;
+  --ion-color-tertiary-tint: #7e57ff;
+
+  /** success **/
+  --ion-color-success: #10dc60;
+  --ion-color-success-rgb: 16, 220, 96;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ec254;
+  --ion-color-success-tint: #28e070;
+
+  /** warning **/
+  --ion-color-warning: #ffce00;
+  --ion-color-warning-rgb: 255, 206, 0;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #e0b500;
+  --ion-color-warning-tint: #ffd31a;
+
+  /** danger **/
+  --ion-color-danger: #f04141;
+  --ion-color-danger-rgb: 245, 61, 61;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d33939;
+  --ion-color-danger-tint: #f25454;
+
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 34, 34;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152, 154, 162;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
+
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 244, 244;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}
+:root {
+  /* Set the background of the entire app */
+ 
+
+  /* Set the font family of the entire app */
+  --ion-font-family: "DFKai-SB";
+}
+* {
+  .modal {
+    top: 0;
+    z-index: 5;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    .modal-inner {
+      background-color: white;
+      text-align: center;
+      width: 75%;
+
+      margin: auto;
+      padding: 40px 20px 20px 20px;
+      border-radius: 10px;
+      /*.modal-inner-image {
+        .img-fluid {
+          width: 160px !important;
+          padding-top: 5px !important;
+          padding-bottom: 5px !important;
+        }
+      }*/
+      .modal-text {
+        font-size: 15px;
+        color: rgb(249, 107, 62);
+        padding: 10px 0 20px 0;
+      }
+      .modal-text-small {
+        font-size: 12px;
+      }
+      .terms-list {
+        overflow-y: scroll;
+        height: 70%;
+      }
+
+      ion-button {
+        font-size: 10px;
+        margin-top: 16px;
+        border-radius: 50px;
+        padding: 0px 25px 5px 25px;
+        --box-shadow: none;
+        margin: 0px;
+      }
+      .comfirm-button {
+        ion-button {
+          --background-hover: rgb(226, 91, 48);
+          --background: rgb(249, 107, 62);
+        }
+      }
+      .cancel-button {
+        ion-button {
+          color: gray;
+          --background-hover: white;
+          --background: white;
+        }
+      }
+    }
+  }
+  .combinebtn {
+    padding: 10px 20px 15px 20px;
+    background: white;
+    .quotebtn {
+      ion-button {
+        --background: rgb(249, 107, 62);
+      }
+    }
+    .cancelquotebtn {
+      ion-button {
+        --background: rgb(233, 0, 0);
+      }
+    }
+  }
+  .modal-input {
+    margin-bottom: 5px;
+    ion-label {
+      color: gray;
+    }
+  }
+  .shipaddress {
+    img {
+      width: 15px;
+      height: auto;
+      margin: 0px 0px 40px 0px;
+      padding: 0;
+    }
+    p {
+      padding: 0px;
+      font-size: 14px;
+      color: black;
+    }
+    h5 {
+      font-size: 12px;
+      padding: 5px 0 5px 0;
+    }
+    h4 {
+      font-size: 12px;
+    }
+    ion-label {
+      margin: 0;
+    }
+
+    ion-card {
+      padding: 5px 0 10px 0;
+      margin: 20px 0 10px 0px;
+      box-shadow: none;
+      border: 1px solid red;
+    }
+  }
+  .add {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  ion-content{
+    --offset-top: 0px;
+    --offset-bottom: 0px;
+    --background: linear-gradient(120deg,#3498db,#8e44ad);
+  }
+  
+}
+.notlogin{
+  p{
+    margin: auto;
+    text-align: center;
+  }
+}

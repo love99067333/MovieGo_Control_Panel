@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      場次管理
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="logined">
+    <div class="history">
+      <table class="history-list">
+        <thead>
+          <tr>
+            <th>電影名稱</th>
+            <th>位置</th>
+            <th>播映時間</th>
+          </tr>
+
+        </thead>
+        <tbody *ngFor="let detail of cinemas_data">
+
+          <tr>
+
+            <td>
+              <p style="color: black">{{detail['cinema']}}</p>
+              <!-- <p style="color: gray">{{detail['date']}}</p> -->
+
+            </td>
+            <td>
+              <p style="color: black">{{detail['theater']}}</p>
+
+            </td>
+            <td class="{{detail['debit']}}">
+              {{detail['date']['year']}}/{{detail['date']['month']}}/{{detail['date']['day']}}
+              {{detail['date']['hour']}}:{{detail['date']['min']}}</td>
+          </tr>
+
+          <!-- <tr>
+              <td>
+                <p>123</p>
+                <p>321</p>
+              </td>
+              <td>20</td>
+            </tr> -->
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="add" (click)="add()">
+      <img src="../../assets/icon/Add.svg">
+    </div>
+  </div>
+  <div class="notlogin">
+    <p *ngIf="!logined">尚未登入</p>
+  </div>
+</ion-content>
+<div class="page-tutor-class">
+
+  <div *ngIf="addcinemas" center class="modal status">
+    <div class="modal-inner">
+      <div>
+
+        <div class="modal-text">
+          新增場次
+        </div>
+
+        <ion-select placeholder="選擇電影" (ionChange)="test()" [(ngModel)]="form.movie">
+          <div *ngFor="let cinema of cinemas">
+            <ion-select-option value={{cinema.number}}>{{cinema.name}}</ion-select-option>
+          </div>
+        </ion-select>
+        <div class="cost">
+          <p>票價(無則填0)</p>
+          <ion-item>
+            <ion-label position="floating">學生票</ion-label>
+            <ion-input [(ngModel)]="price.student"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">小孩票</ion-label>
+            <ion-input [(ngModel)]="price.kid"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">大人票</ion-label>
+            <ion-input [(ngModel)]="price.adult"></ion-input>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position="floating">位置(電影院內)</ion-label>
+            <ion-input [(ngModel)]="theater"></ion-input>
+          </ion-item>
+        </div>
+
+        <div style="border: solid 1px #000;">
+          <div>
+          <ion-label>播映時間</ion-label>
+          <ion-item>
+            <ion-label>點此選擇播映日期</ion-label>
+            <ion-datetime value="2019-1-1" placeholder="選擇日期" min="2019-11-07" max="2030-12-31"
+              display-format="YYYY/M/D" picker-format="YYYY:M:D" [(ngModel)]='date' min="2020-01-01" max="2020-01-05"  (ionChange)="pick_date()">
+            </ion-datetime>
+          </ion-item>
+          <!-- <ion-row>
+            <ion-col class="col-4" style="padding-left: 0px;">
+              <ion-label position="floating">月</ion-label>
+              <ion-select interface="popover" (ionChange)="checkdate()" [(ngModel)]="form.month">
+                <ion-select-option *ngFor="let m of month" value="{{m}}">{{m}}</ion-select-option>
+
+              </ion-select>
+            </ion-col>
+            <ion-col class="col-4" style="padding-right: 0px;">
+              <ion-label position="floating">日</ion-label>
+              <ion-input type="number" [(ngModel)]="form.date" (ionChange)="checkdate()"></ion-input>
+
+            </ion-col>
+            <ion-col class="col-4" style="padding-right: 0px;">
+              <ion-label position="floating">年</ion-label>
+              <ion-input type="number" [(ngModel)]="form.year" (ionChange)="checkdate()"></ion-input>
+
+            </ion-col>
+          </ion-row> -->
+        </div>
+
+        <ion-item lines="none">
+          <ion-chip *ngFor="let t of times" outline color="success" (click)="delete_time(t)">
+            {{t['0']}}{{t['1']}}:{{t['2']}}{{t['3']}}</ion-chip>
+
+        </ion-item>
+        <div class="time">
+          <ion-item lines="none">
+            <ion-label>點此選擇時間</ion-label>
+            <ion-datetime display-format="H:mm" picker-format="H:mm" [(ngModel)]="time" (ionChange)="select()">
+            </ion-datetime>
+          </ion-item>
+        </div>
+      </div>
+        <p>{{caution}}</p>
+        <div class="comfirm-button">
+          <ion-button expand="block" (click)="add_confirm()">COMFIRM</ion-button>
+        </div>
+        <div class="cancel-button">
+          <ion-button expand="block" (click)="add_cancel()">CANCEL</ion-button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
