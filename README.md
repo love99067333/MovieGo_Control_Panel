@@ -1,0 +1,2 @@
+# MovieGo_Control_Panel
+MovieGo是一款綜合電影院訂票手機APP，此專案為後台系統
