@@ -16,4 +16,3 @@ Moveie GO
 	https://www.ecpay.com.tw/Announcement/DetailAnnouncement?nID=3759
 
 #上架網頁
- http://formyappgom.byethost8.com/
